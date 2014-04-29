@@ -1,0 +1,37 @@
+/**导航背景色*/
+.nav{background-color: #84c4e7; background:url(../../img/header_bar.jpg) repeat-x; border-top: #4A95E2 solid 2px; 
+}
+/**字体颜色*/
+ul.menu li a{color: #fff;}
+/**鼠标放到导航颜色*/
+ul.menu li a.hoverCss{ background-color: rgba(255,255,255,0.5); color:#000; text-shadow:0,0,(0,0,0,0);}
+ul.menu li a.nav-click:hover{ background-color: rgba(255,255,255,1);  text-shadow:0,0,(0,0,0,0);}
+/**点击导航后的样式*/
+.nav-click{background-color: #fcfcfc;color:#092C55; !important;margin-top:8px !important;padding: 5px 20px 7px 20px !important;}
+/***/
+.portlet-header .portlet-title{color: #53afe0;}
+/*button{border: solid 1px #0089D0; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px;}*/
+.ui-button-text-only {
+color: #fff;
+border: solid 1px #789DC2;
+background: url("../../img/top/header_bg.jpg") repeat-x scroll 0 0 transparent;
+}
+ 
+.ui-button-text-only :hover {
+color: #fff;
+border: solid 1px #789DC2;
+background: url("../../img/top/header_bg.jpg") repeat-x scroll 0 0 transparent;
+text-shadow:0 0 2px rgba(255,255,255.0.5);
+}
+ 
+.ui-button-text-only :active {
+color: #fff;
+border: solid 1px #789DC2;
+background: url("../../img/top/header_bg.jpg") repeat-x scroll 0 0 transparent;
+}
+.ui-button-text-only.ui-state-focus {
+color: #fff;
+border: solid 1px #789DC2;
+background: url("../../img/top/header_bg.jpg") repeat-x scroll 0 0 transparent;
+}
+

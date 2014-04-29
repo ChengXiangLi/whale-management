@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="pragma" content="no-cache"/> 
+<meta http-equiv="Cache-Control" content="no-cache, no-store, max-age=0, must-revalidate"/> 
+<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+<link href="lib/css/new.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="lib/scripts/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="lib/scripts/jquery.validate.js"></script>
+<script type="text/javascript" src="lib/scripts/jquery.cookies.2.2.0.min.js"></script>
+<script type="text/javascript" src="lib/scripts/LAB.min.js"></script>
+<script type="text/javascript" src="lib/scripts/util.js"></script>
+<script type="text/javascript" src="scripts/service/whaleService.js"></script>
+<script type="text/javascript" src="lib/scripts/jquery.whale.core.js"></script>
+<script type="text/javascript" src="scripts/login/login.js"></script>
+<title drawText="TITLE_TEXT">whale-management-登录</title>
+</head>
+<body class="login-bg">
+    <div class="login-box">
+    	<div class="box-logo"></div>
+        <div class="box">
+        <form name="loginForm" id="loginForm" action="a/login2login.action" method="post">
+        	<div style="width:340px; margin:0px auto;">
+        	<table align="center" width="340" class="field" border="0">
+            	<tr>
+                	<td width="90" align="right" drawText='LOGIN_USERNAME'>用户名</td>
+                    <td>
+                    <input type="text"  name="username" id="username" maxlength="50" class="text required mask-special mask-uncn" value=""/></td>
+                </tr>
+            	<tr>
+                	<td align="right"  drawText='LOGIN_PASSWORD'>密码</td>
+                    <td><input type="password" class="text required mask-special"  id="passwd" name="password" maxlength="50"  /></td>
+                </tr>               
+            </table>
+            <table align="center" width="340" class="alert" border="0"><tr>
+            <td width="90" align="right">&nbsp;&nbsp;</td>
+            <td style="height: 18px">
+				<div id="fieldError" >&nbsp;&nbsp;</div>
+				</td></tr></table>
+        	<table align="center" width="300" class="button" border="0">
+            	<tr>
+                	<td align="center"><input type="button" value="重置" class="button" onclick="resetform();" style="margin-left:3px;cursor: pointer;" drawValue='DISPOSE_CANCEL_TEXT'/></td>
+                    <td align="center"><input type="button" value="登录" class="button"  onclick="javascript:loginform();" style="margin-right:5px;cursor: pointer;" drawValue='LOGIN_TEXT'/></td>
+                </tr>        
+            </table> 
+            </div>                  
+        </form>
+        
+        </div>
+        <div class="box-shadow"></div>
+    </div>
+</body>
+
+</html>

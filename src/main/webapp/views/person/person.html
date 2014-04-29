@@ -1,0 +1,239 @@
+<div class="person-container">
+	<div id="tabs">
+		<ul class="person-menu">
+			<li><a href="#import-person-data" drawText="CAPTION_IMPORT_DATA"></a></li>
+			<li><a href="#query-person-data" drawText="CAPTION_QUERY_DATA"></a></li>
+			<li><a href="#export-person-data" drawText="CAPTION_EXPORT_DATA"></a></li>
+		</ul>
+		<div id="import-person-data">
+			<h2>上传导入个人数据</h2>
+			<ul class='operate-bar'>
+			</ul>
+			<div class="file-list">
+				<table id="person-file-grid"></table>
+			</div>
+			<form id="person-import-file-form" action="fileupload/person" method="post"
+				enctype="multipart/form-data">
+				<input type="file" name="filename" class="fileUpload" multiple /> <input
+					type="submit" value="上传" />
+			</form>
+			<div class="progress">
+				<div class="bar"></div>
+				<div class="percent">0%</div>
+			</div>
+			<div id="status"></div>
+		</div>
+		<div id="query-person-data">
+			<h2>查询个人数据</h2>
+			<fieldset>
+				<legend drawText="QUERY_CONDITION"></legend>
+				<form id="person-query-condition">
+					<div id="person-query-condition-left">
+						<input type="checkbox" id="query-sex" name="full" value="性别" />性别:<input
+							type="text" id="query-sex-input" /><br /> <input
+							type="checkbox" id="query-birth" name="range" value="出生日期" />出生日期:<input
+							type="text" id="query-birth-input1" />-<input type="text"
+							id="query-birth-input2" /><br /> <input type="checkbox"
+							id="query-location" name="fuzzy" value="行政区域" />行政区域:<input
+							type="text" id="query-location-input" /><br /> <input
+							type="checkbox" id="query-addr" name="fuzzy" value="地址" />地址:<input
+							type="text" id="query-addr-input" /><br /> <input
+							type="checkbox" id="query-email" name="full" value="邮箱" />邮箱:<input
+							type="text" id="query-email-input" /><br /> <input
+							type="checkbox" id="query-salary" name="range" value="年收入" />年收入:<input
+							type="text" id="query-salary-input1" />-<input type="text"
+							id="query-salary-input2" /><br /> <input type="checkbox"
+							id="query-education" name="full" value="最高学历" />最高学历:<input
+							type="text" id="query-education-input" /><br /> <input
+							type="checkbox" id="query-user-level" name="full" value="用户级别" />用户级别:<input
+							type="text" id="query-user-level-input" /><br /> <input
+							type="checkbox" id="query-data-source" name="full" value="数据来源" />数据来源:<input
+							type="text" id="query-data-source-input" /><br /> <input
+							type="checkbox" id="query-title" name="full" value="职务" />职务:<input
+							type="text" id="query-title-input" /><br /> <input
+							type="checkbox" id="query-identifier-name" name="full"
+							value="证件名称" />证件名称:<input type="text"
+							id="query-identifier-name-input" /><br />
+					</div>
+					<div id="person-query-condition-right">
+						<input type="checkbox" id="query-made-in" name="full" value="产品国别" />产品国别:<input
+							type="text" id="query-made-in-input" /><br /> <input
+							type="checkbox" id="query-car-sign" name="full" value="车辆品牌" />车辆品牌:<input
+							type="text" id="query-car-sign-input" /><br /> <input
+							type="checkbox" id="query-car-price" name="range" value="车价位" />车价位:<input
+							type="text" id="query-car-price-input1" />-<input type="text"
+							id="query-car-price-input2" /><br /> <input type="checkbox"
+							id="query-car-buy-date" name="range" value="购车日期" />购车日期:<input
+							type="text" id="query-car-buy-date-input1" />-<input type="text"
+							id="query-car-buy-date-input2" /><br /> <input type="checkbox"
+							id="query-child-age" name="range" value="子女年龄" />子女年龄:<input
+							type="text" id="query-child-age-input1" />-<input type="text"
+							id="query-child-age-input2" /><br /> <input type="checkbox"
+							id="query-child-grade" name="range" value="子女就读年级" />子女就读年级:<input
+							type="text" id="query-child-grade-input1" />-<input type="text"
+							id="query-child-grade-input2" /><br /> <input type="checkbox"
+							id="query-consumed-staff" name="full" value="购买产品" />购买产品:<input
+							type="text" id="query-consumed-staff-input" /><br /> <input
+							type="checkbox" id="query-trade-date" name="range" value="交易日期" />交易日期:<input
+							type="text" id="query-trade-date-input1" />-<input type="text"
+							id="query-trade-date-input2" /><br /> <input type="checkbox"
+							id="query-trade-amount" name="range" value="交易金额" />交易金额:<input
+							type="text" id="query-trade-amount-input1" />-<input type="text"
+							id="query-trade-amount-input2" /><br /> <input type="checkbox"
+							id="query-huodongfangshi" name="full" value="活动方式" />活动方式:<input
+							type="text" id="query-huodongfangshi-input" /><br /> <input
+							type="checkbox" id="query-project-name" name="full"
+							value="活动项目名称" />活动项目名称:<input type="text"
+							id="query-project-name-input" /><br />
+					</div>
+				</form>
+			</fieldset>
+			<fieldset>
+				<legend drawText="QUERY_FIELDS"></legend>
+				<input type="checkbox" id="person-query-select-all" />全选<br />
+				<form id="person-query-fields">
+					<input type="checkbox" id="query-sex" value="性别" />性别 <input
+						type="checkbox" id="query-birth" value="出生日期" />出生日期 <input
+						type="checkbox" id="query-location" value="行政区域" />行政区域 <input
+						type="checkbox" id="query-addr" value="地址" />地址 <input
+						type="checkbox" id="query-email" value="邮箱" />邮箱 <input
+						type="checkbox" id="query-salary" value="年收入" />年收入 <input
+						type="checkbox" id="query-education" value="最高学历" />最高学历 <input
+						type="checkbox" id="query-user-level" value="用户级别" />用户级别 <input
+						type="checkbox" id="query-data-source" value="数据来源" />数据来源 <input
+						type="checkbox" id="query-title" value="职务" />职务 <input
+						type="checkbox" id="query-identifier-name" value="证件名称" />证件名称 <input
+						type="checkbox" id="query-made-in" value="产品国别" />产品国别 <input
+						type="checkbox" id="query-car-sign" value="车辆品牌" />车辆品牌 <input
+						type="checkbox" id="query-car-price" value="车价位" />车价位 <input
+						type="checkbox" id="query-car-buy-date" value="购车日期" />购车日期 <input
+						type="checkbox" id="query-child-age" value="子女年龄" />子女年龄 <input
+						type="checkbox" id="query-child-grade" value="子女就读年级" />子女就读年级 <input
+						type="checkbox" id="query-consumed-staff" value="购买产品" />购买产品 <input
+						type="checkbox" id="query-trade-date" value="交易日期" />交易日期 <input
+						type="checkbox" id="query-trade-amount" value="交易金额" />交易金额 <input
+						type="checkbox" id="query-huodongfangshi" value="活动方式" />活动方式 <input
+						type="checkbox" id="query-project-name" value="活动项目名称" />活动项目名称<br />
+					<input type="button" id="person-submit-query" value="提交" />
+				</form>
+			</fieldset>
+			<div id="person-query-header">
+				<p>查询结果共<label id="person-query-result-number"></label>条，显示前<label id="person-query-show-number"></label>条</p>
+			</div>
+			<table id="person-query-result">
+			</table>
+		</div>
+		<div id="export-person-data">
+			<h2>导出个人数据</h2>
+			<fieldset>
+				<legend drawText="EXPORT_CONDITION"></legend>
+				<form id="person-export-condition">
+					<div id="person-export-condition-left">
+						<input type="checkbox" id="export-sex" name="full" value="性别" />性别:<input
+							type="text" id="export-sex-input" /><br /> <input
+							type="checkbox" id="export-birth" name="range" value="出生日期" />出生日期:<input
+							type="text" id="export-birth-input1" />-<input type="text"
+							id="export-birth-input2" /><br /> <input type="checkbox"
+							id="export-location" name="fuzzy" value="行政区域" />行政区域:<input
+							type="text" id="export-location-input" /><br /> <input
+							type="checkbox" id="export-addr" name="fuzzy" value="地址" />地址:<input
+							type="text" id="export-addr-input" /><br /> <input
+							type="checkbox" id="export-email" name="full" value="邮箱" />邮箱:<input
+							type="text" id="export-email-input" /><br /> <input
+							type="checkbox" id="export-salary" name="range" value="年收入" />年收入:<input
+							type="text" id="export-salary-input1" />-<input type="text"
+							id="export-salary-input2" /><br /> <input type="checkbox"
+							id="export-education" name="full" value="最高学历" />最高学历:<input
+							type="text" id="export-education-input" /><br /> <input
+							type="checkbox" id="export-user-level" name="full" value="用户级别" />用户级别:<input
+							type="text" id="export-user-level-input" /><br /> <input
+							type="checkbox" id="export-data-source" name="full" value="数据来源" />数据来源:<input
+							type="text" id="export-data-source-input" /><br /> <input
+							type="checkbox" id="export-title" name="full" value="职务" />职务:<input
+							type="text" id="export-title-input" /><br />
+					</div>
+					<div id="person-export-condition-right">
+						<input type="checkbox" id="export-car-sign" name="full"
+							value="车辆品牌" />车辆品牌:<input type="text"
+							id="export-car-sign-input" /><br /> <input type="checkbox"
+							id="export-car-price" name="range" value="车价位" />车价位:<input
+							type="text" id="export-car-price-input1" />-<input type="text"
+							id="export-car-price-input2" /><br /> <input type="checkbox"
+							id="export-car-buy-date" name="range" value="购车日期" />购车日期:<input
+							type="text" id="export-car-buy-date-input1" />-<input
+							type="text" id="export-car-buy-date-input2" /><br /> <input
+							type="checkbox" id="export-child-age" name="range" value="子女年龄" />子女年龄:<input
+							type="text" id="export-child-age-input1" />-<input type="text"
+							id="export-child-age-input2" /><br /> <input type="checkbox"
+							id="export-child-grade" name="range" value="子女就读年级" />子女就读年级:<input
+							type="text" id="export-child-grade-input1" />-<input type="text"
+							id="export-child-grade-input2" /><br /> <input type="checkbox"
+							id="export-consumed-staff" name="full" value="购买产品" />购买产品:<input
+							type="text" id="export-consumed-staff-input" /><br /> <input
+							type="checkbox" id="export-trade-date" name="range" value="交易日期" />交易日期:<input
+							type="text" id="export-trade-date-input1" />-<input type="text"
+							id="export-trade-date-input2" /><br /> <input type="checkbox"
+							id="export-trade-amount" name="range" value="交易金额" />交易金额:<input
+							type="text" id="export-trade-amount-input1" />-<input
+							type="text" id="export-trade-amount-input2" /><br /> <input
+							type="checkbox" id="export-huodongfangshi" name="full"
+							value="活动方式" />活动方式:<input type="text"
+							id="export-huodongfangshi-input" /><br /> <input
+							type="checkbox" id="export-project-name" name="full"
+							value="活动项目名称" />活动项目名称:<input type="text"
+							id="export-project-name-input" /><br />
+					</div>
+				</form>
+			</fieldset>
+			<fieldset>
+				<legend drawText="EXPORT_FIELDS"></legend>
+				<input type="checkbox" id="person-export-select-all" />全选<br />
+				<form id="person-export-fields">
+					<input type="checkbox" id="export-name" value="姓名" />姓名 <input
+						type="checkbox" id="export-sex" value="性别" />性别 <input
+						type="checkbox" id="export-birth" value="出生日期" />出生日期 <input
+						type="checkbox" id="export-telphone" value="联系电话" />联系电话 <input
+						type="checkbox" id="export-mobie" value="手机号码" />手机号码 <input
+						type="checkbox" id="export-location" value="行政区域" />行政区域 <input
+						type="checkbox" id="export-addr" value="地址" />地址 <input
+						type="checkbox" id="export-email" value="邮箱" />邮箱 <input
+						type="checkbox" id="export-salary" value="年收入" />年收入 <input
+						type="checkbox" id="export-education" value="最高学历" />最高学历 <input
+						type="checkbox" id="export-master" value="专业" />专业 <input
+						type="checkbox" id="export-user-level" value="用户级别" />用户级别 <input
+						type="checkbox" id="export-social-security-account" value="社保账号" />社保账号
+					<input type="checkbox" id="export-social-security-base"
+						value="缴金基数" />缴金基数 <input type="checkbox" id="export-tax"
+						value="传真" />传真 <input type="checkbox" id="export-data-source"
+						value="数据来源" />数据来源 <input type="checkbox" id="export-title"
+						value="职务" />职务 <input type="checkbox"
+						id="export-identifier-number" value="证件号码" />证件号码 <input
+						type="checkbox" id="export-car-sign" value="车辆品牌" />车辆品牌 <input
+						type="checkbox" id="export-car-price" value="车价位" />车价位 <input
+						type="checkbox" id="export-car-buy-date" value="购车日期" />购车日期 <input
+						type="checkbox" id="export-car-license" value="车牌" />车牌 <input
+						type="checkbox" id="export-car-insure" value="保险" />保险 <input
+						type="checkbox" id="export-building-name" value="楼盘名称" />楼盘名称 <input
+						type="checkbox" id="export-funds" value="资金量（万）" />资金量（万） <input
+						type="checkbox" id="export-child-name" value="子女姓名" />子女姓名 <input
+						type="checkbox" id="export-child-age" value="子女年龄" />子女年龄 <input
+						type="checkbox" id="export-child-school-region" value="子女所属校区" />子女所属校区
+					<input type="checkbox" id="export-child-grade" value="子女就读年级" />子女就读年级
+					<input type="checkbox" id="export-child-graduate-time"
+						value="子女毕业时间" />子女毕业时间 <input type="checkbox"
+						id="export-shop-name" value="网店名称" />网店名称 <input type="checkbox"
+						id="export-consumed-staff" value="购买产品" />购买产品 <input
+						type="checkbox" id="export-trade-date" value="交易日期" />交易日期 <input
+						type="checkbox" id="export-trade-amount" value="交易金额" />交易金额 <input
+						type="checkbox" id="export-pay-account" value="支付账户" />支付账户 <input
+						type="checkbox" id="export-huodongfangshi" value="活动方式" />活动方式 <input
+						type="checkbox" id="export-attend-date" value="参加日期" />参加日期 <input
+						type="checkbox" id="export-project-name" value="活动项目名称" />活动项目名称
+					<input type="checkbox" id="export-child-phone" value="子女手机号码" />子女手机号码
+					<br /> <input type="button" id="person-submit-export"
+						value="提交" />
+				</form>
+			</fieldset>
+		</div>
+	</div>
+</div>

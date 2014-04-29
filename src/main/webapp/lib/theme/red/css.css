@@ -1,0 +1,10 @@
+/**导航背景色*/
+.nav{background-color: red}
+/**字体颜色*/
+ul.menu li a{color: #000;}
+/**鼠标放到导航颜色*/
+ul.menu li a:hover{background-color: #0000FF;color:#fff;}
+/**点击导航后的样式*/
+.nav-click{background-color: #0000FF;color:#fff !important;margin-top:8px !important;padding: 5px 20px 7px 20px !important;}
+
+.portlet-header .portlet-title{color: red;}

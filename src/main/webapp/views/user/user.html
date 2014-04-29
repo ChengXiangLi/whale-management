@@ -1,0 +1,24 @@
+<div class="user_container">
+	<div id="tabs">
+		<ul class="user-menu">
+			<li><a href="#add_user" drawText="CAPTION_ADD_USER"></a></li>
+			<li><a href="#query_user_actions" drawText="CAPTION_LIST_USER_ACTIONS"></a></li>
+		</ul>
+		<div id="add_user">
+			<ul class='operate-bar'>
+			</ul>
+			<div class="user_list">
+				<table id="user_grid"></table>
+			</div>
+		</div>
+		<div id="query_user_actions">
+			<div>
+				用户:<select id="user_select" width="100"/> 从: <input type="text" id="from_date"> 到: <input type="text" id="to_date"><button id = "submit_list_actions" type="button">提交</button><br/>
+			</div>
+			<table id="user_actions_grid">
+			</table>
+		</div>
+		<div id="user_config"></div>
+	</div>
+	<div id="user_delete_message_container" style="display: none;"></div>
+</div>

@@ -1,0 +1,4 @@
+导入
+java -jar whale-0.1.jar -type import -table PERSON -importPath /home/cxli/workspace/whale/trunk/whale/src/test/resources/广东报关报检.xls
+导出
+java -jar whale-0.1.jar -type export -table PERSON -exportPath /home/cxli/peron-test.xls -querySql 'select NAME, SEX from PERSON'

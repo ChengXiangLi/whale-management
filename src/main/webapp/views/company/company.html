@@ -1,0 +1,274 @@
+<div class="company-container">
+	<div id="tabs">
+		<ul class="company-menu">
+			<li><a href="#import-company-data"
+				drawText="CAPTION_IMPORT_DATA"></a></li>
+			<li><a href="#query-company-data" drawText="CAPTION_QUERY_DATA"></a></li>
+			<li><a href="#export-company-data"
+				drawText="CAPTION_EXPORT_DATA"></a></li>
+		</ul>
+		<div id="import-company-data">
+			<h2>上传导入公司数据</h2>
+			<ul class='operate-bar'>
+			</ul>
+			<div class="file-list">
+				<table id="company-file-grid"></table>
+			</div>
+			<form id="company-import-file-form" action="fileupload/company" method="post"
+				enctype="multipart/form-data">
+				<input type="file" name="filename" class="fileUpload" multiple /> <input
+					type="submit" value="上传" />
+			</form>
+			<div class="progress">
+				<div class="bar"></div>
+				<div class="percent">0%</div>
+			</div>
+
+			<div id="status"></div>
+		</div>
+		<div id="query-company-data">
+			<h2>查询公司数据</h2>
+			<fieldset>
+				<legend drawText="QUERY_CONDITION"></legend>
+				<form id="company-query-condition">
+					<div id="company-query-condition-left">
+						<input type="checkbox" id="query-company-name" name="full"
+							value="法人单位名称" />法人单位名称:<input type="text"
+							id="query-company-name-input" /><br /> <input type="checkbox"
+							id="query-registered-capital" name="range" value="注册资金" />注册资金:<input
+							type="text" id="query-registered-capital-input1" />-<input
+							type="text" id="query-registered-capital-input2" /><br /> <input
+							type="checkbox" id="query-registered-date" name="range"
+							value="注册时间" />注册时间:<input type="text"
+							id="query-registered-date-input1" />-<input type="text"
+							id="query-registered-date-input2" /><br /> <input
+							type="checkbox" id="query-main-business-income" name="range"
+							value="主营业务收入" />主营业务收入:<input type="text"
+							id="query-main-business-income-input1" />-<input type="text"
+							id="query-main-business-income-input2" /><br /> <input
+							type="checkbox" id="query-employee-number" name="range"
+							value="人员规模" />人员规模:<input type="text"
+							id="query-employee-number-input1" />-<input type="text"
+							id="query-employee-number-input2" /><br /> <input
+							type="checkbox" id="query-main-business" name="full" value="主营行业" />主营行业:<input
+							type="text" id="query-main-business-input" /><br /> <input
+							type="checkbox" id="query-addr" name="fuzzy" value="地址" />地址:<input
+							type="text" id="query-addr-input" /><br /> <input
+							type="checkbox" id="query-region-code" name="full" value="区号" />区号:<input
+							type="text" id="query-region-code-input" /><br /> <input
+							type="checkbox" id="query-data-source" name="full" value="数据来源" />数据来源:<input
+							type="text" id="query-data-source-input" /><br /> <input
+							type="checkbox" id="query-xingzheng-region-code" name="full"
+							value="行政区划代码" />行政区划代码:<input type="text"
+							id="query-xingzheng-region-code-input" /><br /> <input
+							type="checkbox" id="query-kuaijileibie" name="full"
+							value="执行会计制度类别" />执行会计制度类别:<input type="text"
+							id="query-kuaijileibie-input" /><br /> <input type="checkbox"
+							id="query-company-type" name="full" value="机构类型" />机构类型:<input
+							type="text" id="query-company-type-input" /><br />
+					</div>
+					<div id="company-query-condition-right">
+						<input type="checkbox" id="query-business-type" name="full"
+							value="行业代码" />行业代码:<input type="text"
+							id="query-business-type-input" /><br /> <input type="checkbox"
+							id="query-identifier-name" name="full" value="证件名称" />证件名称:<input
+							type="text" id="query-identifier-name-input" /><br /> <input
+							type="checkbox" id="query-connector-phone" name="full"
+							value="联系人手机号" />联系人手机号:<input type="text"
+							id="query-connector-phone-input" /><br /> <input
+							type="checkbox" id="query-connector-dep" name="full"
+							value="联系人所在部门" />联系人所在部门:<input type="text"
+							id="query-connector-dep-input" /><br /> <input type="checkbox"
+							id="query-connector-title" name="full" value="联系人职务" />联系人职务:<input
+							type="text" id="query-connector-title-input" /><br /> <input
+							type="checkbox" id="query-connector-graduate-date" name="range"
+							value="联系人毕业时间" />联系人毕业时间:<input type="text"
+							id="query-connector-graduate-date-input1" />-<input type="text"
+							id="query-connector-graduate-date-input2" /><br /> <input
+							type="checkbox" id="query-connector-graduate-school" name="full"
+							value="联系人毕业学校" />联系人毕业学校:<input type="text"
+							id="query-connector-graduate-school-input" /><br /> <input
+							type="checkbox" id="query-connector-master" name="full"
+							value="联系人专业" />联系人专业:<input type="text"
+							id="query-connector-master-input" /><br /> <input
+							type="checkbox" id="query-connector-education" name="full"
+							value="联系人最高学历" />联系人最高学历:<input type="text"
+							id="query-connector-education-input" /><br /> <input
+							type="checkbox" id="query-activity-type" name="full" value="活动方式" />活动方式:<input
+							type="text" id="query-activity-type-input" /><br /> <input
+							type="checkbox" id="query-attend-date" name="range" value="参加日期" />参加日期:<input
+							type="text" id="query-attend-date-input1" />-<input type="text"
+							id="query-attend-date-input2" /><br /> <input type="checkbox"
+							id="query-activity-project-name" name="full" value="活动项目名称" />活动项目名称:<input
+							type="text" id="query-activity-project-name-input" /><br />
+					</div>
+				</form>
+			</fieldset>
+			<fieldset>
+				<legend drawText="QUERY_FIELDS"></legend>
+				<input type="checkbox" id="company-query-select-all" />全选<br />
+				<form id="company-query-fields">
+					<input type="checkbox" id="query-company-name" value="法人单位名称" />法人单位名称
+					<input type="checkbox" id="query-registered-capital" value="注册资金" />注册资金
+					<input type="checkbox" id="query-registered-date" value="注册时间" />注册时间
+					<input type="checkbox" id="query-main-business-income"
+						value="主营业务收入" />主营业务收入 <input type="checkbox"
+						id="query-employee-number" value="人员规模" />人员规模 <input
+						type="checkbox" id="query-main-business" value="主营行业" />主营行业 <input
+						type="checkbox" id="query-addr" value="地址" />地址 <input
+						type="checkbox" id="query-region-code" value="区号" />区号 <input
+						type="checkbox" id="query-data-source" value="数据来源" />数据来源 <input
+						type="checkbox" id="query-xingzheng-region-code" value="行政区划代码" />行政区划代码
+					<input type="checkbox" id="query-kuaijileibie" value="执行会计制度类别" />执行会计制度类别
+					<input type="checkbox" id="query-company-type" value="机构类型" />机构类型
+					<input type="checkbox" id="query-business-type" value="行业代码" />行业代码
+					<input type="checkbox" id="query-identifier-name" value="证件名称" />证件名称
+					<input type="checkbox" id="query-connector-phone" value="联系人手机号" />联系人手机号
+					<input type="checkbox" id="query-connector-dep" value="联系人所在部门" />联系人所在部门
+					<input type="checkbox" id="query-connector-title" value="联系人职务" />联系人职务
+					<input type="checkbox" id="query-connector-graduate-date"
+						value="联系人毕业时间" />联系人毕业时间 <input type="checkbox"
+						id="query-connector-graduate-school" value="联系人毕业学校" />联系人毕业学校 <input
+						type="checkbox" id="query-connector-master" value="联系人专业" />联系人专业
+					<input type="checkbox" id="query-connector-education"
+						value="联系人最高学历" />联系人最高学历 <input type="checkbox"
+						id="query-activity-type" value="活动方式" />活动方式 <input
+						type="checkbox" id="query-attend-date" value="参加日期" />参加日期 <input
+						type="checkbox" id="query-activity-project-name" value="活动项目名称" />活动项目名称<br />
+					<input type="button" id="company-submit-query" value="提交" />
+				</form>
+			</fieldset>
+			<div id="company-query-head">
+				<p>查询结果共<label id="company-query-result-number"></label>条，显示前<label id="company-query-show-number"></label>条</p>
+			</div>
+			<table id="company-query-result">
+			</table>
+		</div>
+		<div id="export-company-data">
+			<h2>导出公司数据</h2>
+			<fieldset>
+				<legend drawText="EXPORT_CONDITION"></legend>
+				<form id="company-export-condition">
+					<div id="company-export-condition-left">
+						<input type="checkbox" id="export-company-name" name="full"
+							value="法人单位名称" />法人单位名称:<input type="text"
+							id="export-company-name-input" /><br /> <input type="checkbox"
+							id="export-registered-capital" name="range" value="注册资金" />注册资金:<input
+							type="text" id="export-registered-capital-input1" />-<input
+							type="text" id="export-registered-capital-input2" /><br /> <input
+							type="checkbox" id="export-registered-date" name="range"
+							value="注册时间" />注册时间:<input type="text"
+							id="export-registered-date-input1" />-<input type="text"
+							id="export-registered-date-input2" /><br /> <input
+							type="checkbox" id="export-main-business-income" name="range"
+							value="主营业务收入" />主营业务收入:<input type="text"
+							id="export-main-business-income-input1" />-<input type="text"
+							id="export-main-business-income-input2" /><br /> <input
+							type="checkbox" id="export-employee-number" name="range"
+							value="人员规模" />人员规模:<input type="text"
+							id="export-employee-number-input1" />-<input type="text"
+							id="export-employee-number-input2" /><br /> <input
+							type="checkbox" id="export-main-business" name="full"
+							value="主营行业" />主营行业:<input type="text"
+							id="export-main-business-input" /><br /> <input type="checkbox"
+							id="export-addr" name="fuzzy" value="地址" />地址:<input type="text"
+							id="export-addr-input" /><br /> <input type="checkbox"
+							id="export-region-code" name="full" value="区号" />区号:<input
+							type="text" id="export-region-code-input" /><br /> <input
+							type="checkbox" id="export-data-source" name="full" value="数据来源" />数据来源:<input
+							type="text" id="export-data-source-input" /><br /> <input
+							type="checkbox" id="export-xingzheng-region-code" name="full"
+							value="行政区划代码" />行政区划代码:<input type="text"
+							id="export-xingzheng-region-code-input" /><br /> <input
+							type="checkbox" id="export-kuaijileibie" name="full"
+							value="执行会计制度类别" />执行会计制度类别:<input type="text"
+							id="export-kuaijileibie-input" /><br /> <input type="checkbox"
+							id="export-company-type" name="full" value="机构类型" />机构类型:<input
+							type="text" id="export-company-type-input" /><br />
+					</div>
+					<div id="company-export-condition-right">
+						<input type="checkbox" id="export-business-type" name="full"
+							value="行业代码" />行业代码:<input type="text"
+							id="export-business-type-input" /><br /> <input type="checkbox"
+							id="export-identifier-name" name="full" value="证件名称" />证件名称:<input
+							type="text" id="export-identifier-name-input" /><br /> <input
+							type="checkbox" id="export-connector-phone" name="full"
+							value="联系人手机号" />联系人手机号:<input type="text"
+							id="export-connector-phone-input" /><br /> <input
+							type="checkbox" id="export-connector-dep" name="full"
+							value="联系人所在部门" />联系人所在部门:<input type="text"
+							id="export-connector-dep-input" /><br /> <input type="checkbox"
+							id="export-connector-title" name="full" value="联系人职务" />联系人职务:<input
+							type="text" id="export-connector-title-input" /><br /> <input
+							type="checkbox" id="export-connector-graduate-date" name="range"
+							value="联系人毕业时间" />联系人毕业时间:<input type="text"
+							id="export-connector-graduate-date-input1" />-<input type="text"
+							id="export-connector-graduate-date-input2" /><br /> <input
+							type="checkbox" id="export-connector-graduate-school" name="full"
+							value="联系人毕业学校" />联系人毕业学校:<input type="text"
+							id="export-connector-graduate-school-input" /><br /> <input
+							type="checkbox" id="export-connector-master" name="full"
+							value="联系人专业" />联系人专业:<input type="text"
+							id="export-connector-master-input" /><br /> <input
+							type="checkbox" id="export-connector-education" name="full"
+							value="联系人最高学历" />联系人最高学历:<input type="text"
+							id="export-connector-education-input" /><br /> <input
+							type="checkbox" id="export-activity-type" name="full"
+							value="活动方式" />活动方式:<input type="text"
+							id="export-activity-type-input" /><br /> <input type="checkbox"
+							id="export-attend-date" name="range" value="参加日期" />参加日期:<input
+							type="text" id="export-attend-date-input1" />-<input type="text"
+							id="export-attend-date-input2" /><br /> <input type="checkbox"
+							id="export-activity-project-name" name="full" value="活动项目名称" />活动项目名称:<input
+							type="text" id="export-activity-project-name-input" /><br />
+					</div>
+				</form>
+			</fieldset>
+			<fieldset>
+				<legend drawText="EXPORT_FIELDS"></legend>
+				<input type="checkbox" id="company-export-select-all" />全选
+				<form id="company-export-fields">
+					<input type="checkbox" id="query-company-name" value="法人单位名称" />法人单位名称
+					<input type="checkbox" id="query-registered-capital" value="注册资金" />注册资金
+					<input type="checkbox" id="query-registered-date" value="注册时间" />注册时间
+					<input type="checkbox" id="query-property" value="资产总计" />资产总计 <input
+						type="checkbox" id="query-main-business-income" value="主营业务收入" />主营业务收入
+					<input type="checkbox" id="query-employee-number" value="人员规模" />人员规模
+					<input type="checkbox" id="query-main-business" value="主营行业" />主营行业
+					<input type="checkbox" id="query-addr" value="地址" />地址 <input
+						type="checkbox" id="query-post-code" value="邮政编码" />邮政编码 <input
+						type="checkbox" id="query-region-code" value="区号" />区号 <input
+						type="checkbox" id="query-phone-number" value="电话号码" />电话号码 <input
+						type="checkbox" id="query-legal-person" value="法定代表人" />法定代表人 <input
+						type="checkbox" id="query-phone-extension" value="分机号" />分机号 <input
+						type="checkbox" id="query-tax-number" value="传真号码" />传真号码 <input
+						type="checkbox" id="query-legal-person-number" value="法人性别" />法人性别
+					<input type="checkbox" id="query-legal-person-id" value="法人身份证号" />法人身份证号
+					<input type="checkbox" id="query-legal-person-phone" value="法人手机号" />法人手机号
+					<input type="checkbox" id="query-legal-person-email" value="法人电子邮箱" />法人电子邮箱
+					<input type="checkbox" id="query-network-addr" value="网址" />网址 <input
+						type="checkbox" id="query-konggu" value="控股情况" />控股情况 <input
+						type="checkbox" id="query-liruguanxi" value="隶属关系" />隶属关系 <input
+						type="checkbox" id="query-connector-name" value="联系人姓名" />联系人姓名 <input
+						type="checkbox" id="query-connector-sex" value="联系人性别" />联系人性别 <input
+						type="checkbox" id="query-connector-id" value="联系人身份证号码" />联系人身份证号码
+					<input type="checkbox" id="query-connector-phone" value="联系人手机号" />联系人手机号
+					<input type="checkbox" id="query-connector-email" value="联系人电子邮箱" />联系人电子邮箱
+					<input type="checkbox" id="query-connector-dep" value="联系人所在部门" />联系人所在部门
+					<input type="checkbox" id="query-connector-title" value="联系人职务" />联系人职务
+					<input type="checkbox" id="query-connector-graduate-date"
+						value="联系人毕业时间" />联系人毕业时间 <input type="checkbox"
+						id="query-connector-graduate-school" value="联系人毕业学校" />联系人毕业学校 <input
+						type="checkbox" id="query-connector-master" value="联系人专业" />联系人专业
+					<input type="checkbox" id="query-connector-education"
+						value="联系人最高学历" />联系人最高学历 <input type="checkbox"
+						id="query-identifier-name" value="证件名称" />证件名称 <input
+						type="checkbox" id="query-activity-type" value="活动方式" />活动方式 <input
+						type="checkbox" id="query-attend-date" value="参加日期" />参加日期 <input
+						type="checkbox" id="query-activity-project-name" value="活动项目名称" />活动项目名称<br />
+					<input type="button" id="company-submit-export" value="提交" />
+				</form>
+			</fieldset>
+		</div>
+	</div>
+</div>
