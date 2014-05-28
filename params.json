@@ -1,0 +1,1 @@
+{"name":"Whale-management","tagline":"whale数据管理系统","body":"## info\r\nwhale-management is an data management web app, which focus on data marketing domain.\r\n## build\r\nuse 'mvn package' to build war app.","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
